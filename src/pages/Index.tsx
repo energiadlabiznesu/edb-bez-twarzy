@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { StickyBar } from "@/components/StickyBar";
 import { HeroSection } from "@/components/HeroSection";
-import { BenefitsSection } from "@/components/BenefitsSection";
 import { ComparisonTable } from "@/components/ComparisonTable";
 import { SecondCTA } from "@/components/SecondCTA";
 import { RegistrationForm } from "@/components/RegistrationForm";
@@ -22,7 +21,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <StickyBar onOpenRegistration={openRegistration} />
       <HeroSection onGateSubmit={handleGateSubmit} gateData={gateData} onOpenRegistration={openRegistration} />
-      <BenefitsSection onOpenRegistration={openRegistration} />
       <ComparisonTable />
       <SecondCTA onOpenRegistration={openRegistration} />
       <RegistrationForm prefill={gateData} isOpen={showRegistration} onClose={closeRegistration} />
