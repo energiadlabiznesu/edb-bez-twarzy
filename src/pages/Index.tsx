@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { StickyBar } from "@/components/StickyBar";
 import { HeroSection } from "@/components/HeroSection";
-import { FirstCTA } from "@/components/FirstCTA";
 import { BenefitsSection } from "@/components/BenefitsSection";
 import { ComparisonTable } from "@/components/ComparisonTable";
 import { SecondCTA } from "@/components/SecondCTA";
@@ -22,8 +21,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <StickyBar onOpenRegistration={openRegistration} />
-      <HeroSection onGateSubmit={handleGateSubmit} gateData={gateData} />
-      <FirstCTA onOpenRegistration={openRegistration} />
+      <HeroSection onGateSubmit={handleGateSubmit} gateData={gateData} onOpenRegistration={openRegistration} />
       <BenefitsSection onOpenRegistration={openRegistration} />
       <ComparisonTable />
       <SecondCTA onOpenRegistration={openRegistration} />

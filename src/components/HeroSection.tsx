@@ -3,9 +3,10 @@ import { useState } from "react";
 interface HeroSectionProps {
   onGateSubmit: (data: { imie: string; email: string; telefon: string }) => void;
   gateData: { imie: string; email: string; telefon: string } | null;
+  onOpenRegistration: () => void;
 }
 
-export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
+export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: HeroSectionProps) => {
   const [showModal, setShowModal] = useState(false);
   const [imie, setImie] = useState("");
   const [email, setEmail] = useState("");
@@ -44,7 +45,7 @@ export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
             </h1>
 
             <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-              Obejrzyj bezplatne szkolenie, w ktorym buduje strone www, tworze grafike i montuje wideo — z AI, za 0 zl. Po tym szkoleniu bedziesz w stanie zrobic to samo w swojej firmie.
+              Obejrzyj bezpłatne szkolenie, w którym buduję stronę www, tworzę grafikę i montuję wideo — z AI, za 0 zł. Po tym szkoleniu będziesz w stanie zrobić to samo w swojej firmie.
             </p>
           </div>
 
@@ -55,7 +56,7 @@ export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
           >
             <iframe
               src={unlocked ? "https://www.youtube.com/embed/pfvN4kNOa2E?autoplay=1" : "https://www.youtube.com/embed/pfvN4kNOa2E"}
-              title="Bezplatne szkolenie AI"
+              title="Bezpłatne szkolenie AI"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className="absolute inset-0 w-full h-full"
@@ -69,8 +70,7 @@ export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
-                  <p className="text-foreground font-bold text-lg tracking-tight">Odblokuj bezplatne szkolenie</p>
-                  <p className="text-muted-foreground text-sm mt-1">Podaj dane, aby obejrzec za darmo</p>
+                  <p className="text-foreground font-bold text-lg tracking-tight">Kliknij, aby obejrzeć za darmo</p>
                 </div>
               </div>
             )}
@@ -81,6 +81,28 @@ export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
               Gotowe, {gateData.imie}! Twoje szkolenie jest odblokowane.
             </div>
           )}
+
+          {/* Course CTA right under video */}
+          <div className="border border-border rounded-lg p-6 md:p-8 mb-6">
+            <p className="text-muted-foreground text-xs uppercase tracking-widest mb-4">Pełny kurs</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
+              To, co zobaczyłeś, to <span className="text-accent">ułamek</span> tego, czego uczę na kursie
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Na 20-godzinnym kursie online na żywo pracujemy razem — budujesz strony, tworzysz wideo, uruchamiasz kampanie, automatyzujesz procesy i budujesz <span className="text-accent">agentów AI</span>.
+            </p>
+            <div className="flex items-baseline gap-4 mb-6">
+              <span className="text-muted-foreground line-through text-lg">5 000 zł</span>
+              <span className="text-5xl font-black text-primary tracking-tight">250 zł</span>
+            </div>
+            <p className="text-muted-foreground text-sm mb-8">Dofinansowanie od państwa pokrywa do 95% kosztów kursu</p>
+            <button
+              onClick={onOpenRegistration}
+              className="inline-block bg-foreground text-background px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              Zapisz się na kurs
+            </button>
+          </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground mt-8">
             <span>Zero teorii — same konkrety</span>
@@ -109,12 +131,12 @@ export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
               </svg>
             </button>
 
-            <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">Odblokuj bezplatne szkolenie</h3>
-            <p className="text-muted-foreground text-sm mb-6">Podaj dane, aby obejrzec szkolenie za darmo</p>
+            <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">Odblokuj bezpłatne szkolenie</h3>
+            <p className="text-muted-foreground text-sm mb-6">Podaj dane, aby obejrzeć szkolenie za darmo</p>
 
             <form onSubmit={handleSubmit} className="space-y-3">
               <input
-                type="text" required placeholder="Imie"
+                type="text" required placeholder="Imię"
                 value={imie} onChange={(e) => setImie(e.target.value)}
                 className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-sm"
               />
@@ -132,13 +154,13 @@ export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
                 type="submit" disabled={submitting}
                 className="w-full bg-primary text-primary-foreground py-3.5 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
               >
-                {submitting ? "Wysylanie..." : "ODBLOKUJ SZKOLENIE"}
+                {submitting ? "Wysyłanie..." : "ODBLOKUJ SZKOLENIE"}
               </button>
             </form>
             <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
-              Wyrazam zgode na kontakt w celu przedstawienia oferty szkoleniowej zgodnie z{" "}
+              Wyrażam zgodę na kontakt w celu przedstawienia oferty szkoleniowej zgodnie z{" "}
               <a href="https://energiabiznesu.pl/polityka-prywatnosci/" target="_blank" rel="noopener" className="underline">
-                polityka prywatnosci
+                polityką prywatności
               </a>
               . Administratorem danych jest Energia dla Biznesu.
             </p>
