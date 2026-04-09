@@ -6,6 +6,7 @@ interface HeroSectionProps {
 }
 
 export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
+  const [showModal, setShowModal] = useState(false);
   const [imie, setImie] = useState("");
   const [email, setEmail] = useState("");
   const [telefon, setTelefon] = useState("");
@@ -28,107 +29,143 @@ export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
       });
     } catch {}
     onGateSubmit({ imie, email, telefon });
+    setShowModal(false);
     setSubmitting(false);
   };
 
   return (
-    <section className="px-4 pt-8 pb-12 md:pt-16 md:pb-20">
-      <div className="max-w-content mx-auto text-center">
-        <div className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-          Bezpłatne szkolenie
-        </div>
+    <>
+      <section className="px-4 pt-12 pb-16 md:pt-24 md:pb-24">
+        <div className="max-w-content mx-auto">
+          <div className="text-center mb-10">
+            <div className="inline-block border border-border text-muted-foreground text-xs font-medium tracking-widest uppercase px-4 py-2 rounded-full mb-8">
+              Bezplatne szkolenie
+            </div>
 
-        <h1 className="font-serif text-3xl md:text-5xl leading-tight text-foreground mb-4">
-          Twoja firma nie potrzebuje agencji. Potrzebuje AI.
-        </h1>
+            <h1 className="text-4xl md:text-6xl font-black leading-[1.1] text-foreground mb-6 tracking-tight">
+              Twoja firma nie potrzebuje agencji.{" "}
+              <span className="text-primary">Potrzebuje AI.</span>
+            </h1>
 
-        <p className="text-body-secondary text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-          Obejrzyj bezpłatne szkolenie, w&nbsp;którym buduję stronę www, tworzę grafikę i&nbsp;montuję wideo — z&nbsp;AI, za&nbsp;0&nbsp;zł. Po&nbsp;tym szkoleniu będziesz w&nbsp;stanie zrobić to&nbsp;samo w&nbsp;swojej firmie.
-        </p>
+            <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+              Obejrzyj bezplatne szkolenie, w ktorym buduje strone www, tworze grafike i montuje wideo — z AI, za 0 zl. Po tym szkoleniu bedziesz w stanie zrobic to samo w swojej firmie.
+            </p>
+          </div>
 
-        {/* Video container */}
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 bg-foreground/5">
-          <iframe
-            src={unlocked ? "https://www.youtube.com/embed/pfvN4kNOa2E?autoplay=1" : "https://www.youtube.com/embed/pfvN4kNOa2E"}
-            title="Bezpłatne szkolenie AI"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="absolute inset-0 w-full h-full"
-          />
-          {!unlocked && (
-            <div className="absolute inset-0 backdrop-blur-md bg-foreground/10 flex items-center justify-center z-10">
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-full bg-card/90 flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-8 h-8 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
+          {/* Video */}
+          <div
+            className="relative w-full aspect-video rounded-lg overflow-hidden mb-6 border border-border cursor-pointer group"
+            onClick={() => !unlocked && setShowModal(true)}
+          >
+            <iframe
+              src={unlocked ? "https://www.youtube.com/embed/pfvN4kNOa2E?autoplay=1" : "https://www.youtube.com/embed/pfvN4kNOa2E"}
+              title="Bezplatne szkolenie AI"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+              style={{ pointerEvents: unlocked ? "auto" : "none" }}
+            />
+            {!unlocked && (
+              <div className="absolute inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center z-10">
+                <div className="text-center">
+                  <div className="w-20 h-20 rounded-full border-2 border-foreground flex items-center justify-center mx-auto mb-4 group-hover:border-primary group-hover:scale-105 transition-all">
+                    <svg className="w-8 h-8 text-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                  <p className="text-foreground font-bold text-lg tracking-tight">Odblokuj szkolenie</p>
+                  <p className="text-muted-foreground text-sm mt-1">Podaj dane, aby obejrzec za darmo</p>
                 </div>
-                <p className="text-card font-semibold text-lg">Odblokuj szkolenie</p>
               </div>
+            )}
+          </div>
+
+          {unlocked && gateData && (
+            <div className="mb-6 p-4 border border-primary/30 rounded-lg text-primary font-medium text-center">
+              Gotowe, {gateData.imie}! Twoje szkolenie jest odblokowane.
             </div>
           )}
-        </div>
 
-        {unlocked && gateData && (
-          <div className="mb-8 p-4 bg-green-50 rounded-xl text-green-800 font-medium text-lg">
-            ✅ Gotowe, {gateData.imie}! Twoje szkolenie jest odblokowane.
+          {/* Course CTA below video */}
+          <div className="border border-border rounded-lg p-6 md:p-8 text-center">
+            <p className="text-muted-foreground text-sm uppercase tracking-widest mb-3">Pelny kurs</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 tracking-tight">
+              Chcesz wiecej? Zapisz sie na <span className="text-accent">20h warsztatow na zywo</span>
+            </h2>
+            <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
+              Strony, wideo, kampanie, automatyzacje, agenci AI — wszystko na Twoich przykladach. Dofinansowanie do 95%.
+            </p>
+            <a
+              href="#zapisz-sie"
+              className="inline-block bg-foreground text-background px-8 py-3.5 rounded-lg font-bold text-sm tracking-wide hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              ZAPISZ SIE NA KURS
+            </a>
           </div>
-        )}
 
-        {!unlocked && (
-          <div className="bg-card rounded-2xl shadow-lg p-6 md:p-8 max-w-md mx-auto mb-8 text-left">
-            <h3 className="font-serif text-xl text-foreground mb-4 text-center">
-              Podaj dane, aby odblokować szkolenie
-            </h3>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground mt-8">
+            <span>Zero teorii — same konkrety</span>
+            <span className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground" />
+            <span>Nagrane specjalnie dla Ciebie</span>
+            <span className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground" />
+            <span>100% za darmo</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setShowModal(false)}>
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+          <div
+            className="relative bg-card border border-border rounded-lg p-8 max-w-md w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">Odblokuj szkolenie</h3>
+            <p className="text-muted-foreground text-sm mb-6">Podaj dane, aby obejrzec szkolenie za darmo</p>
+
             <form onSubmit={handleSubmit} className="space-y-3">
               <input
-                type="text"
-                required
-                placeholder="Imię"
-                value={imie}
-                onChange={(e) => setImie(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all"
+                type="text" required placeholder="Imie"
+                value={imie} onChange={(e) => setImie(e.target.value)}
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-sm"
               />
               <input
-                type="email"
-                required
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all"
+                type="email" required placeholder="Email"
+                value={email} onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-sm"
               />
               <input
-                type="tel"
-                required
-                placeholder="Telefon"
-                value={telefon}
-                onChange={(e) => setTelefon(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all"
+                type="tel" required placeholder="Telefon"
+                value={telefon} onChange={(e) => setTelefon(e.target.value)}
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-sm"
               />
               <button
-                type="submit"
-                disabled={submitting}
-                className="w-full bg-primary text-primary-foreground py-3.5 rounded-lg font-semibold text-base hover:opacity-90 transition-opacity disabled:opacity-50"
+                type="submit" disabled={submitting}
+                className="w-full bg-primary text-primary-foreground py-3.5 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
               >
-                {submitting ? "Wysyłanie..." : "Odblokuj szkolenie →"}
+                {submitting ? "Wysylanie..." : "ODBLOKUJ SZKOLENIE"}
               </button>
             </form>
-            <p className="text-xs text-muted-foreground mt-3 text-center leading-relaxed">
-              Wyrażam zgodę na kontakt w celu przedstawienia oferty szkoleniowej zgodnie z{" "}
+            <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
+              Wyrazam zgode na kontakt w celu przedstawienia oferty szkoleniowej zgodnie z{" "}
               <a href="https://energiabiznesu.pl/polityka-prywatnosci/" target="_blank" rel="noopener" className="underline">
-                polityką prywatności
+                polityka prywatnosci
               </a>
               . Administratorem danych jest Energia dla Biznesu.
             </p>
           </div>
-        )}
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-body-secondary">
-          <span>✅ Zero teorii — same konkrety</span>
-          <span>✅ Nagrane specjalnie dla Ciebie</span>
-          <span>✅ 100% za darmo</span>
         </div>
-      </div>
-    </section>
+      )}
+    </>
   );
 };

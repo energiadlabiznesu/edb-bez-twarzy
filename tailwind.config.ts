@@ -14,11 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["DM Sans", "sans-serif"],
-        serif: ["DM Serif Display", "serif"],
+        sans: ["Inter", "sans-serif"],
       },
       maxWidth: {
-        content: "720px",
+        content: "900px",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -54,13 +53,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        dark: {
-          bg: "hsl(var(--dark-bg))",
-          fg: "hsl(var(--dark-fg))",
-        },
-        "body-text": "hsl(var(--body-text))",
-        "body-secondary": "hsl(var(--body-secondary))",
-        "orange-soft": "hsl(var(--orange-soft))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
