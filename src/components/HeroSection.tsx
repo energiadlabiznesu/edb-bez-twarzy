@@ -38,10 +38,6 @@ export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
       <section className="px-4 pt-12 pb-16 md:pt-24 md:pb-24">
         <div className="max-w-content mx-auto">
           <div className="text-center mb-10">
-            <div className="inline-block border border-border text-muted-foreground text-xs font-medium tracking-widest uppercase px-4 py-2 rounded-full mb-8">
-              Bezplatne szkolenie
-            </div>
-
             <h1 className="text-4xl md:text-6xl font-black leading-[1.1] text-foreground mb-6 tracking-tight">
               Twoja firma nie potrzebuje agencji.{" "}
               <span className="text-primary">Potrzebuje AI.</span>
@@ -73,7 +69,7 @@ export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
-                  <p className="text-foreground font-bold text-lg tracking-tight">Odblokuj szkolenie</p>
+                  <p className="text-foreground font-bold text-lg tracking-tight">Odblokuj bezplatne szkolenie</p>
                   <p className="text-muted-foreground text-sm mt-1">Podaj dane, aby obejrzec za darmo</p>
                 </div>
               </div>
@@ -86,23 +82,6 @@ export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
             </div>
           )}
 
-          {/* Course CTA below video */}
-          <div className="border border-border rounded-lg p-6 md:p-8 text-center">
-            <p className="text-muted-foreground text-sm uppercase tracking-widest mb-3">Pelny kurs</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 tracking-tight">
-              Chcesz wiecej? Zapisz sie na <span className="text-accent">20h warsztatow na zywo</span>
-            </h2>
-            <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-              Strony, wideo, kampanie, automatyzacje, agenci AI — wszystko na Twoich przykladach. Dofinansowanie do 95%.
-            </p>
-            <a
-              href="#zapisz-sie"
-              className="inline-block bg-foreground text-background px-8 py-3.5 rounded-lg font-bold text-sm tracking-wide hover:bg-primary hover:text-primary-foreground transition-colors"
-            >
-              ZAPISZ SIE NA KURS
-            </a>
-          </div>
-
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground mt-8">
             <span>Zero teorii — same konkrety</span>
             <span className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground" />
@@ -113,7 +92,7 @@ export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
         </div>
       </section>
 
-      {/* Modal */}
+      {/* Gate Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setShowModal(false)}>
           <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
@@ -130,7 +109,7 @@ export const HeroSection = ({ onGateSubmit, gateData }: HeroSectionProps) => {
               </svg>
             </button>
 
-            <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">Odblokuj szkolenie</h3>
+            <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">Odblokuj bezplatne szkolenie</h3>
             <p className="text-muted-foreground text-sm mb-6">Podaj dane, aby obejrzec szkolenie za darmo</p>
 
             <form onSubmit={handleSubmit} className="space-y-3">

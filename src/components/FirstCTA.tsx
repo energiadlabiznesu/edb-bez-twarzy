@@ -1,6 +1,10 @@
 import { ScrollFadeIn } from "./ScrollFadeIn";
 
-export const FirstCTA = () => (
+interface Props {
+  onOpenRegistration: () => void;
+}
+
+export const FirstCTA = ({ onOpenRegistration }: Props) => (
   <section className="py-20 md:py-28 px-4 border-t border-b border-border">
     <ScrollFadeIn>
       <div className="max-w-content mx-auto">
@@ -18,12 +22,12 @@ export const FirstCTA = () => (
               <span className="text-5xl font-black text-primary tracking-tight">250 zl</span>
             </div>
             <p className="text-muted-foreground text-sm mb-8">Dofinansowanie od panstwa pokrywa do 95% kosztow kursu</p>
-            <a
-              href="#zapisz-sie"
+            <button
+              onClick={onOpenRegistration}
               className="inline-block bg-foreground text-background px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
             >
-              ZAPISZ SIE NA KURS
-            </a>
+              Zapisz sie na kurs
+            </button>
           </div>
         </div>
       </div>
