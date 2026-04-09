@@ -1,6 +1,10 @@
 import { ScrollFadeIn } from "./ScrollFadeIn";
 
-export const SecondCTA = () => (
+interface Props {
+  onOpenRegistration: () => void;
+}
+
+export const SecondCTA = ({ onOpenRegistration }: Props) => (
   <section className="py-20 md:py-28 px-4 border-t border-b border-border">
     <ScrollFadeIn>
       <div className="max-w-content mx-auto text-center">
@@ -13,12 +17,12 @@ export const SecondCTA = () => (
         <p className="text-muted-foreground text-sm mb-8 max-w-lg mx-auto">
           Pomagamy z dokumentami, z formalnosciami, ze wszystkim. Od Ciebie — tylko zgloszenie i udzial.
         </p>
-        <a
-          href="#zapisz-sie"
+        <button
+          onClick={onOpenRegistration}
           className="inline-block bg-foreground text-background px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
         >
-          ZAPISZ SIE I SPRAWDZ DOFINANSOWANIE
-        </a>
+          Zapisz sie i sprawdz dofinansowanie
+        </button>
         <p className="text-muted-foreground text-xs mt-4 uppercase tracking-widest">Liczba miejsc ograniczona</p>
       </div>
     </ScrollFadeIn>

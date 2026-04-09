@@ -1,32 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { StickyBar } from "@/components/StickyBar";
 import { HeroSection } from "@/components/HeroSection";
 import { FirstCTA } from "@/components/FirstCTA";
 import { BenefitsSection } from "@/components/BenefitsSection";
 import { ComparisonTable } from "@/components/ComparisonTable";
 import { SecondCTA } from "@/components/SecondCTA";
-import { CourseFormat } from "@/components/CourseFormat";
-import { StatsSection } from "@/components/StatsSection";
 import { RegistrationForm } from "@/components/RegistrationForm";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
   const [gateData, setGateData] = useState<{ imie: string; email: string; telefon: string } | null>(null);
+  const [showRegistration, setShowRegistration] = useState(false);
 
   const handleGateSubmit = (data: { imie: string; email: string; telefon: string }) => {
     setGateData(data);
   };
 
+  const openRegistration = () => setShowRegistration(true);
+  const closeRegistration = () => setShowRegistration(false);
+
   return (
     <div className="min-h-screen bg-background">
-      <StickyBar />
+      <StickyBar onOpenRegistration={openRegistration} />
       <HeroSection onGateSubmit={handleGateSubmit} gateData={gateData} />
-      <FirstCTA />
-      <BenefitsSection />
+      <FirstCTA onOpenRegistration={openRegistration} />
+      <BenefitsSection onOpenRegistration={openRegistration} />
       <ComparisonTable />
-      <SecondCTA />
-      <CourseFormat />
-      <StatsSection />
+      <SecondCTA onOpenRegistration={openRegistration} />
+      <RegistrationForm prefill={gateData} isOpen={showRegistration} onClose={closeRegistration} />
       <RegistrationForm prefill={gateData} />
       <Footer />
     </div>
