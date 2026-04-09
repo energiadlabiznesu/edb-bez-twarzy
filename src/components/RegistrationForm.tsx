@@ -28,13 +28,11 @@ export const RegistrationForm = ({ prefill }: Props) => {
   const [submitted, setSubmitted] = useState(false);
 
   // Sync prefill when it changes
-  useState(() => {
-    if (prefill) {
-      setImie(prefill.imie);
-      setEmail(prefill.email);
-      setTelefon(prefill.telefon);
-    }
-  });
+  if (prefill && !imie && !email && !telefon) {
+    setImie(prefill.imie);
+    setEmail(prefill.email);
+    setTelefon(prefill.telefon);
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
