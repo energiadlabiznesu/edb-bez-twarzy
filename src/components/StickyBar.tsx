@@ -23,7 +23,7 @@ export const StickyBar = ({ onOpenRegistration }: Props) => {
           onClick={onOpenRegistration}
           className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-xs font-bold tracking-wide hover:opacity-90 transition-opacity"
         >
-          Zapisz sie — 95% dofinansowania
+          Zapisz się — 95% dofinansowania
         </button>
       </div>
     </div>
