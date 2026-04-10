@@ -48,7 +48,7 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
           zrodlo: "zapis / kurs marketing AI",
           imie,
           email,
-          telefon,
+          telefon: telefon.startsWith("+48") ? telefon : `+48${telefon}`,
           miasto,
           typ: typ === "firma" ? "Dla zespołu / firmy" : "Dla siebie",
           forma,

@@ -26,7 +26,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
       fetch("https://hook.eu1.make.com/lnv66vibcnqmke1wpsrmuex8j4u2axux", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ zrodlo: "gate / bezplatne szkolenie AI", imie, email, telefon }),
+        body: JSON.stringify({ zrodlo: "gate / bezplatne szkolenie AI", imie, email, telefon: telefon.startsWith("+48") ? telefon : `+48${telefon}` }),
       });
     } catch {}
     onGateSubmit({ imie, email, telefon });
