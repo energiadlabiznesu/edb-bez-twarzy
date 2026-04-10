@@ -41,22 +41,22 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const formData = new FormData();
-      formData.append("zrodlo", "zapis / kurs marketing AI");
-      formData.append("imie", imie);
-      formData.append("email", email);
-      formData.append("telefon", telefon);
-      formData.append("miasto", miasto);
-      formData.append("typ", typ === "firma" ? "Dla zespołu / firmy" : "Dla siebie");
-      formData.append("forma", forma);
-      formData.append("liczba_osob", liczbaOsob);
-      formData.append("nazwa_firmy", nazwaFirmy);
-      formData.append("wojewodztwo", wojewodztwo);
-      formData.append("powiat", powiat);
-      fetch("https://script.google.com/macros/s/AKfycbz2V42cgixXmfl5hSeugLtMQfYRAM9ZW8PXZkdZa956fM8DAxQAqAv9ThFaTrBdr0g/exec", {
+      fetch("https://hook.eu1.make.com/lnv66vibcnqmke1wpsrmuex8j4u2axux", {
         method: "POST",
-        mode: "no-cors",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          zrodlo: "zapis / kurs marketing AI",
+          imie,
+          email,
+          telefon,
+          miasto,
+          typ: typ === "firma" ? "Dla zespołu / firmy" : "Dla siebie",
+          forma,
+          liczba_osob: liczbaOsob,
+          nazwa_firmy: nazwaFirmy,
+          wojewodztwo,
+          powiat,
+        }),
       });
     } catch {}
     setSubmitted(true);

@@ -23,10 +23,10 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
       formData.append("imie", imie);
       formData.append("email", email);
       formData.append("telefon", telefon);
-      fetch("https://script.google.com/macros/s/AKfycbz2V42cgixXmfl5hSeugLtMQfYRAM9ZW8PXZkdZa956fM8DAxQAqAv9ThFaTrBdr0g/exec", {
+      fetch("https://hook.eu1.make.com/lnv66vibcnqmke1wpsrmuex8j4u2axux", {
         method: "POST",
-        mode: "no-cors",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ zrodlo: "gate / bezplatne szkolenie AI", imie, email, telefon }),
       });
     } catch {}
     onGateSubmit({ imie, email, telefon });
