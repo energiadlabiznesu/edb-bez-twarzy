@@ -59,6 +59,7 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
         }),
       });
     } catch {}
+    (window as any).fbq?.("track", "CompleteRegistration", { content_name: "Kurs marketing AI" });
     setSubmitted(true);
     setSubmitting(false);
   };
