@@ -41,7 +41,7 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      fetch("https://hook.eu1.make.com/lnv66vibcnqmke1wpsrmuex8j4u2axux", {
+      fetch("https://hook.eu1.make.com/22bvxx1rpidpb7vcymz5ruxlmoo083jk", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
