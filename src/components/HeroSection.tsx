@@ -56,7 +56,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
               onClick={() => !unlocked && setShowModal(true)}
             >
               <iframe
-                src={unlocked ? "https://www.youtube.com/embed/pfvN4kNOa2E?autoplay=1" : "https://www.youtube.com/embed/pfvN4kNOa2E"}
+                src={unlocked ? "https://www.youtube.com/embed/pmFZB5Xie-g?autoplay=1" : "https://www.youtube.com/embed/pmFZB5Xie-g"}
                 title="Bezpłatne szkolenie AI"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
