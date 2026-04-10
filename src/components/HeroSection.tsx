@@ -153,11 +153,14 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
                 value={email} onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-sm"
               />
-              <input
-                type="tel" required placeholder="Telefon"
-                value={telefon} onChange={(e) => setTelefon(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-sm"
-              />
+              <div className="flex rounded-lg border border-border bg-background focus-within:ring-2 focus-within:ring-primary/30 focus-within:border-primary transition-all">
+                <span className="px-3 py-3 text-sm text-foreground border-r border-border">+48</span>
+                <input
+                  type="tel" required placeholder="575496452"
+                  value={telefon} onChange={(e) => setTelefon(e.target.value.replace(/\D/g, "").slice(0, 9))}
+                  className="flex-1 px-3 py-3 bg-transparent text-foreground placeholder:text-muted-foreground outline-none text-sm"
+                />
+              </div>
               <button
                 type="submit" disabled={submitting}
                 className="w-full bg-primary text-primary-foreground py-3.5 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity disabled:opacity-50"

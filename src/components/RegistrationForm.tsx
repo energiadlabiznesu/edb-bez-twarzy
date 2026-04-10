@@ -84,7 +84,10 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
             <input type="email" required placeholder="Email *" value={email} onChange={(e) => setEmail(e.target.value)} className={inputClass} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input type="tel" required placeholder="Telefon *" value={telefon} onChange={(e) => setTelefon(e.target.value)} className={inputClass} />
+            <div className="flex rounded-lg border border-border bg-background focus-within:ring-2 focus-within:ring-primary/30 focus-within:border-primary transition-all">
+              <span className="px-3 py-3 text-sm text-foreground border-r border-border">+48</span>
+              <input type="tel" required placeholder="575496452" value={telefon} onChange={(e) => setTelefon(e.target.value.replace(/\D/g, "").slice(0, 9))} className="flex-1 px-3 py-3 bg-transparent text-foreground placeholder:text-muted-foreground outline-none text-sm" />
+            </div>
             <input type="text" required placeholder="Miasto *" value={miasto} onChange={(e) => setMiasto(e.target.value)} className={inputClass} />
           </div>
 
