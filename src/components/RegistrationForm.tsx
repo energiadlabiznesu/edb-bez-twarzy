@@ -105,13 +105,13 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
           {typ === "firma" && (
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <select value={forma} onChange={(e) => setForma(e.target.value)} className={inputClass + " appearance-none"}>
-                  <option value="">Forma działalności</option>
+                <select required value={forma} onChange={(e) => setForma(e.target.value)} className={inputClass + " appearance-none"}>
+                  <option value="">Forma działalności *</option>
                   {formy.map((f) => <option key={f} value={f}>{f}</option>)}
                 </select>
-                <input type="number" min="1" placeholder="Liczba osób" value={liczbaOsob} onChange={(e) => setLiczbaOsob(e.target.value)} className={inputClass} />
+                <input type="number" required min="1" placeholder="Liczba osób *" value={liczbaOsob} onChange={(e) => setLiczbaOsob(e.target.value)} className={inputClass} />
               </div>
-              <input type="text" placeholder="Nazwa firmy / organizacji" value={nazwaFirmy} onChange={(e) => setNazwaFirmy(e.target.value)} className={inputClass} />
+              <input type="text" required placeholder="Nazwa firmy / organizacji *" value={nazwaFirmy} onChange={(e) => setNazwaFirmy(e.target.value)} className={inputClass} />
             </div>
           )}
 
@@ -120,7 +120,7 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
               <option value="">Województwo *</option>
               {voivodeships.map((v) => <option key={v} value={v}>{v}</option>)}
             </select>
-            <input type="text" required placeholder="Powiat *" value={powiat} onChange={(e) => setPowiat(e.target.value)} className={inputClass} />
+            <input type="text" placeholder="Powiat" value={powiat} onChange={(e) => setPowiat(e.target.value)} className={inputClass} />
           </div>
 
           <div className="flex justify-center pt-2">
