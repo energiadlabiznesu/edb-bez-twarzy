@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StickyBar } from "@/components/StickyBar";
 import { HeroSection } from "@/components/HeroSection";
 import { ComparisonTable } from "@/components/ComparisonTable";
@@ -16,6 +16,13 @@ const Index = () => {
 
   const openRegistration = () => setShowRegistration(true);
   const closeRegistration = () => setShowRegistration(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("zapisz") === "1") {
+      setShowRegistration(true);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
