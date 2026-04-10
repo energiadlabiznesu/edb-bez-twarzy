@@ -29,7 +29,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
         body: JSON.stringify({ zrodlo: "gate / bezplatne szkolenie AI", imie, email, telefon: telefon.startsWith("+48") ? telefon : `+48${telefon}` }),
       });
     } catch {}
-    (window as any).fbq?.("track", "Lead", { content_name: "Bezpłatne szkolenie AI" });
+    (window as any).fbq && (window as any).fbq("track", "Lead");
     onGateSubmit({ imie, email, telefon });
     setShowModal(false);
     setSubmitting(false);
