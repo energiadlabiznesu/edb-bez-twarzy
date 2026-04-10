@@ -50,30 +50,38 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
           </div>
 
           {/* Video */}
-          <div
-            className="relative w-full aspect-video rounded-lg overflow-hidden mb-6 border border-border cursor-pointer group"
-            onClick={() => !unlocked && setShowModal(true)}
-          >
-            <iframe
-              src={unlocked ? "https://www.youtube.com/embed/pfvN4kNOa2E?autoplay=1" : "https://www.youtube.com/embed/pfvN4kNOa2E"}
-              title="Bezpłatne szkolenie AI"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-              style={{ pointerEvents: unlocked ? "auto" : "none" }}
-            />
-            {!unlocked && (
-              <div className="absolute inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center z-10">
-                <div className="text-center">
-                  <div className="w-20 h-20 rounded-full border-2 border-foreground flex items-center justify-center mx-auto mb-4 group-hover:border-primary group-hover:scale-105 transition-all">
-                    <svg className="w-8 h-8 text-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
+          <div className="mb-6">
+            <div
+              className="relative w-full aspect-video rounded-t-lg overflow-hidden border border-b-0 border-border cursor-pointer group"
+              onClick={() => !unlocked && setShowModal(true)}
+            >
+              <iframe
+                src={unlocked ? "https://www.youtube.com/embed/pfvN4kNOa2E?autoplay=1" : "https://www.youtube.com/embed/pfvN4kNOa2E"}
+                title="Bezpłatne szkolenie AI"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+                style={{ pointerEvents: unlocked ? "auto" : "none" }}
+              />
+              {!unlocked && (
+                <div className="absolute inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center z-10">
+                  <div className="text-center">
+                    <div className="w-20 h-20 rounded-full border-2 border-foreground flex items-center justify-center mx-auto mb-4 group-hover:border-primary group-hover:scale-105 transition-all">
+                      <svg className="w-8 h-8 text-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                    <p className="text-foreground font-bold text-lg tracking-tight">Kliknij, aby obejrzeć za darmo</p>
                   </div>
-                  <p className="text-foreground font-bold text-lg tracking-tight">Kliknij, aby obejrzeć za darmo</p>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
+            <button
+              onClick={onOpenRegistration}
+              className="w-full bg-primary text-primary-foreground py-3.5 rounded-b-lg font-bold text-sm hover:opacity-90 transition-opacity border border-t-0 border-primary"
+            >
+              Zapisz się na pełny kurs
+            </button>
           </div>
 
           {unlocked && gateData && (
