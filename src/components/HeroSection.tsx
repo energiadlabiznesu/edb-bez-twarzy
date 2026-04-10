@@ -156,7 +156,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
               <div className="flex rounded-lg border border-border bg-background focus-within:ring-2 focus-within:ring-primary/30 focus-within:border-primary transition-all">
                 <span className="px-3 py-3 text-sm text-foreground border-r border-border">+48</span>
                 <input
-                  type="tel" required placeholder="1234567890"
+                  type="tel" required placeholder="123 456 789"
                   value={telefon} onChange={(e) => setTelefon(e.target.value.replace(/\D/g, "").slice(0, 9))}
                   className="flex-1 px-3 py-3 bg-transparent text-foreground placeholder:text-muted-foreground outline-none text-sm"
                 />
