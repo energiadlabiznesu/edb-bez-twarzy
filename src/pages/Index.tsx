@@ -22,6 +22,9 @@ const Index = () => {
     if (params.get("zapisz") === "1") {
       setShowRegistration(true);
     }
+    if (params.get("odblokowane") === "1") {
+      setGateData({ imie: "", email: "", telefon: "" });
+    }
   }, []);
 
   return (
