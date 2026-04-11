@@ -121,7 +121,7 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
               <option value="">Województwo *</option>
               {voivodeships.map((v) => <option key={v} value={v}>{v}</option>)}
             </select>
-            <input type="text" placeholder="Powiat" value={powiat} onChange={(e) => setPowiat(e.target.value)} className={inputClass} />
+            <input type="text" required placeholder="Powiat *" value={powiat} onChange={(e) => setPowiat(e.target.value)} className={inputClass} />
           </div>
 
           <div className="flex justify-center pt-2">
