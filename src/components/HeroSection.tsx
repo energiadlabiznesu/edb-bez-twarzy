@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const VIDEO_ID = "pmFZB5Xie-g";
 
@@ -10,8 +10,8 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: HeroSectionProps) => {
   const [showModal, setShowModal] = useState(false);
-  const [videoActive, setVideoActive] = useState(false);
-  const [iframeReady, setIframeReady] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const [imie, setImie] = useState("");
   const [email, setEmail] = useState("");
   const [telefon, setTelefon] = useState("");
@@ -57,19 +57,25 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
           {/* Video */}
           <div className="mb-6">
             <div className="relative w-full aspect-video rounded-t-lg overflow-hidden border border-b-0 border-border bg-black">
-              {videoActive && (
-                <iframe
-                  src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&vq=hd1080`}
-                  title="Bezpłatne szkolenie AI"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  onLoad={() => setIframeReady(true)}
-                  className="absolute inset-0 w-full h-full"
-                />
-              )}
-              {(!videoActive || !iframeReady) && (
+              {/* iframe pre-loaded behind the thumbnail */}
+              <iframe
+                ref={iframeRef}
+                src={`https://www.youtube.com/embed/${VIDEO_ID}?enablejsapi=1&rel=0&modestbranding=1&vq=hd1080`}
+                title="Bezpłatne szkolenie AI"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+              {/* Thumbnail overlay — removed on click, video plays immediately */}
+              {!videoPlaying && (
                 <button
-                  onClick={() => setVideoActive(true)}
+                  onClick={() => {
+                    setVideoPlaying(true);
+                    iframeRef.current?.contentWindow?.postMessage(
+                      JSON.stringify({ event: "command", func: "playVideo", args: [] }),
+                      "*"
+                    );
+                  }}
                   className="absolute inset-0 w-full h-full group z-10"
                   aria-label="Odtwórz wideo"
                 >
