@@ -192,6 +192,14 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
               Wypełnij formularz — sprawdzimy dostępne dofinansowanie, pomożemy z dokumentami i przeprowadzimy całe Twoje zgłoszenie. Bezpłatnie.
             </p>
           </div>
+
+          <div className="mb-8 rounded-lg border border-primary/40 bg-primary/5 p-5">
+            <p className="text-xs uppercase tracking-widest text-primary font-bold mb-2">Dlaczego pytamy o firmę?</p>
+            <p className="text-foreground text-sm leading-relaxed">
+              Sprawdzamy czy możesz dostać <strong>dofinansowanie z KFS lub BUR</strong> — wtedy zamiast <span className="line-through text-muted-foreground">5 000 zł</span> płacisz tylko <strong className="text-primary text-base">250 zł</strong>. Całą dokumentację robimy za Ciebie, bezpłatnie.
+            </p>
+          </div>
+
           {formContent}
         </div>
       </ScrollFadeIn>

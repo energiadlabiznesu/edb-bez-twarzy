@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const VIDEO_ID = "pmFZB5Xie-g";
 
@@ -12,11 +12,51 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
   const [showModal, setShowModal] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const playerRef = useRef<any>(null);
   const [imie, setImie] = useState("");
   const [email, setEmail] = useState("");
   const [telefon, setTelefon] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const unlocked = !!gateData;
+
+  useEffect(() => {
+    const initPlayer = () => {
+      if (!iframeRef.current) return;
+      playerRef.current = new (window as any).YT.Player(iframeRef.current, {
+        events: {
+          onStateChange: (event: any) => {
+            if (event.data === 0) {
+              setTimeout(() => onOpenRegistration(), 800);
+            }
+          },
+        },
+      });
+    };
+
+    if (!(window as any).YT || !(window as any).YT.Player) {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(tag);
+      (window as any).onYouTubeIframeAPIReady = initPlayer;
+    } else {
+      initPlayer();
+    }
+
+    return () => {
+      playerRef.current?.destroy?.();
+    };
+  }, []);
+
+  const handlePlayClick = () => {
+    setVideoPlaying(true);
+    if (playerRef.current?.playVideo) {
+      playerRef.current.playVideo();
+    } else {
+      iframeRef.current?.contentWindow?.postMessage(
+        JSON.stringify({ event: "command", func: "playVideo", args: [] }), "*"
+      );
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,13 +109,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
               {/* Thumbnail overlay — removed on click, video plays immediately */}
               {!videoPlaying && (
                 <button
-                  onClick={() => {
-                    setVideoPlaying(true);
-                    iframeRef.current?.contentWindow?.postMessage(
-                      JSON.stringify({ event: "command", func: "playVideo", args: [] }),
-                      "*"
-                    );
-                  }}
+                  onClick={handlePlayClick}
                   className="absolute inset-0 w-full h-full group z-10"
                   aria-label="Odtwórz wideo"
                 >
