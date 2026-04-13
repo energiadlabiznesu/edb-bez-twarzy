@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+const VIDEO_ID = "pmFZB5Xie-g";
+
 interface HeroSectionProps {
   onGateSubmit: (data: { imie: string; email: string; telefon: string }) => void;
   gateData: { imie: string; email: string; telefon: string } | null;
@@ -8,6 +10,7 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: HeroSectionProps) => {
   const [showModal, setShowModal] = useState(false);
+  const [videoActive, setVideoActive] = useState(false);
   const [imie, setImie] = useState("");
   const [email, setEmail] = useState("");
   const [telefon, setTelefon] = useState("");
@@ -52,14 +55,36 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
 
           {/* Video */}
           <div className="mb-6">
-            <div className="relative w-full aspect-video rounded-t-lg overflow-hidden border border-b-0 border-border">
-              <iframe
-                src="https://www.youtube.com/embed/pmFZB5Xie-g"
-                title="Bezpłatne szkolenie AI"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
+            <div className="relative w-full aspect-video rounded-t-lg overflow-hidden border border-b-0 border-border bg-black">
+              {videoActive ? (
+                <iframe
+                  src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&vq=hd1080`}
+                  title="Bezpłatne szkolenie AI"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                />
+              ) : (
+                <button
+                  onClick={() => setVideoActive(true)}
+                  className="absolute inset-0 w-full h-full group"
+                  aria-label="Odtwórz wideo"
+                >
+                  <img
+                    src={`https://i.ytimg.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
+                    alt="Bezpłatne szkolenie AI"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                      <svg className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+              )}
             </div>
             <button
               onClick={onOpenRegistration}
