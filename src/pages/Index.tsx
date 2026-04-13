@@ -7,6 +7,7 @@ import { RegistrationForm } from "@/components/RegistrationForm";
 import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useTheme } from "@/hooks/useTheme";
+import { InfiniteGridBg } from "@/components/ui/the-infinite-grid";
 
 const Index = () => {
   const { theme, toggle } = useTheme();
@@ -31,7 +32,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <InfiniteGridBg className="min-h-screen bg-background">
       <StickyBar onOpenRegistration={openRegistration} theme={theme} onToggleTheme={toggle} />
       <div className="fixed top-4 right-4 z-40">
         <ThemeToggle theme={theme} onToggle={toggle} />
@@ -42,7 +43,7 @@ const Index = () => {
       <RegistrationForm prefill={gateData} isOpen={showRegistration} onClose={closeRegistration} />
       <RegistrationForm prefill={gateData} />
       <Footer />
-    </div>
+    </InfiniteGridBg>
   );
 };
 

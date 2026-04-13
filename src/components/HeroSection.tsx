@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import { InfiniteGridBg } from "@/components/ui/the-infinite-grid";
 
 const VIDEO_ID = "pmFZB5Xie-g";
 
@@ -43,7 +42,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
   return (
     <>
       <section className="px-4 pt-12 pb-16 md:pt-24 md:pb-24">
-      <InfiniteGridBg className="max-w-content mx-auto">
+        <div className="max-w-content mx-auto">
           <div className="text-center mb-10">
             <h1 className="text-4xl md:text-6xl font-black leading-[1.1] text-foreground mb-6 tracking-tight">
               Twoja firma nie potrzebuje agencji.{" "}
@@ -133,7 +132,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
             <span className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground" />
             <span>100% za darmo</span>
           </div>
-        </InfiniteGridBg>
+        </div>
       </section>
 
       {/* Gate Modal */}
