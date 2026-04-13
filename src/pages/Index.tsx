@@ -5,8 +5,11 @@ import { ComparisonTable } from "@/components/ComparisonTable";
 import { SecondCTA } from "@/components/SecondCTA";
 import { RegistrationForm } from "@/components/RegistrationForm";
 import { Footer } from "@/components/Footer";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { useTheme } from "@/hooks/useTheme";
 
 const Index = () => {
+  const { theme, toggle } = useTheme();
   const [gateData, setGateData] = useState<{ imie: string; email: string; telefon: string } | null>({ imie: "", email: "", telefon: "" });
   const [showRegistration, setShowRegistration] = useState(false);
 
@@ -29,7 +32,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <StickyBar onOpenRegistration={openRegistration} />
+      <StickyBar onOpenRegistration={openRegistration} theme={theme} onToggleTheme={toggle} />
+      <div className="fixed top-4 right-4 z-40">
+        <ThemeToggle theme={theme} onToggle={toggle} />
+      </div>
       <HeroSection onGateSubmit={handleGateSubmit} gateData={gateData} onOpenRegistration={openRegistration} />
       <ComparisonTable />
       <SecondCTA onOpenRegistration={openRegistration} />
