@@ -80,7 +80,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
                   aria-label="Odtwórz wideo"
                 >
                   <img
-                    src={`https://i.ytimg.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
+                    src="/images/og-cover.jpg"
                     alt="Bezpłatne szkolenie AI"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
