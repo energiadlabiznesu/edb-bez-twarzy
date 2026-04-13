@@ -11,6 +11,7 @@ interface HeroSectionProps {
 export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: HeroSectionProps) => {
   const [showModal, setShowModal] = useState(false);
   const [videoActive, setVideoActive] = useState(false);
+  const [iframeReady, setIframeReady] = useState(false);
   const [imie, setImie] = useState("");
   const [email, setEmail] = useState("");
   const [telefon, setTelefon] = useState("");
@@ -56,18 +57,20 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
           {/* Video */}
           <div className="mb-6">
             <div className="relative w-full aspect-video rounded-t-lg overflow-hidden border border-b-0 border-border bg-black">
-              {videoActive ? (
+              {videoActive && (
                 <iframe
                   src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&vq=hd1080`}
                   title="Bezpłatne szkolenie AI"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
+                  onLoad={() => setIframeReady(true)}
                   className="absolute inset-0 w-full h-full"
                 />
-              ) : (
+              )}
+              {(!videoActive || !iframeReady) && (
                 <button
                   onClick={() => setVideoActive(true)}
-                  className="absolute inset-0 w-full h-full group"
+                  className="absolute inset-0 w-full h-full group z-10"
                   aria-label="Odtwórz wideo"
                 >
                   <img
@@ -77,8 +80,8 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                      <svg className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <div className="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                      <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
