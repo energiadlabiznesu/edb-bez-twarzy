@@ -59,6 +59,7 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
         }),
       });
     } catch {}
+    (window as any).fbq && (window as any).fbq("track", "Lead");
     (window as any).fbq && (window as any).fbq("track", "CompleteRegistration");
     setSubmitted(true);
     setSubmitting(false);

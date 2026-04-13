@@ -7,7 +7,7 @@ import { RegistrationForm } from "@/components/RegistrationForm";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
-  const [gateData, setGateData] = useState<{ imie: string; email: string; telefon: string } | null>(null);
+  const [gateData, setGateData] = useState<{ imie: string; email: string; telefon: string } | null>({ imie: "", email: "", telefon: "" });
   const [showRegistration, setShowRegistration] = useState(false);
 
   const handleGateSubmit = (data: { imie: string; email: string; telefon: string }) => {
