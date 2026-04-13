@@ -36,10 +36,7 @@ export const Footer = () => (
         <a href="mailto:szkolenia@energiabiznesu.pl" className="hover:text-foreground transition-colors">
           szkolenia@energiabiznesu.pl
         </a>
-        <a href="https://energiabiznesu.pl" target="_blank" rel="noopener" className="hover:text-foreground transition-colors">
-          energiabiznesu.pl
-        </a>
-        <a href="https://energiabiznesu.pl/polityka-prywatnosci/" target="_blank" rel="noopener" className="hover:text-foreground transition-colors">
+<a href="https://energiabiznesu.pl/polityka-prywatnosci/" target="_blank" rel="noopener" className="hover:text-foreground transition-colors">
           Polityka prywatności
         </a>
       </div>
