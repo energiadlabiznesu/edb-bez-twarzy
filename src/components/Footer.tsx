@@ -68,6 +68,19 @@ export const Footer = () => (
         </a>
       </div>
 
+      {/* Organizer line */}
+      <p className="text-xs text-muted-foreground text-center">
+        Organizator: Energia dla Biznesu |{" "}
+        <a
+          href="https://energiabiznesu.pl/"
+          target="_blank"
+          rel="noopener"
+          className="underline hover:text-foreground transition-colors"
+        >
+          energiabiznesu.pl
+        </a>
+      </p>
+
     </div>
   </footer>
 );

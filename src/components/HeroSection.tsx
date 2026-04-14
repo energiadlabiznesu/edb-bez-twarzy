@@ -84,19 +84,21 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
       <section className="px-4 pt-12 pb-16 md:pt-24 md:pb-24">
         <div className="max-w-content mx-auto">
           <div className="text-center mb-10">
-            <h1 className="text-4xl md:text-6xl font-black leading-[1.1] text-foreground mb-6 tracking-tight">
-              Twoja firma nie potrzebuje agencji.{" "}
-              <span className="text-primary">Potrzebuje AI.</span>
+            <h1 className="text-4xl md:text-6xl font-black leading-[1.1] text-foreground tracking-tight">
+              Twoja firma nie potrzebuje agencji.
             </h1>
+            <h2 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-tight mb-6" style={{ color: '#F5821F' }}>
+              Potrzebuje AI.
+            </h2>
 
             <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-              Obejrzyj bezpłatne szkolenie, w którym buduję stronę www, tworzę grafikę i montuję wideo — z AI, za 0 zł. Po tym szkoleniu będziesz w stanie zrobić to samo w swojej firmie.
+              Naucz się sam lub zapisz swój zespół — w 2 dni online.
             </p>
           </div>
 
           {/* Video */}
           <div className="mb-6">
-            <div className="relative w-full aspect-video rounded-t-lg overflow-hidden border border-b-0 border-border bg-black">
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-border bg-black">
               {/* iframe pre-loaded behind the thumbnail */}
               <iframe
                 ref={iframeRef}
@@ -129,11 +131,30 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
                 </button>
               )}
             </div>
+            {/* Benefits block */}
+            <div className="mt-4 bg-white rounded-xl p-4 shadow-sm" style={{ borderRadius: '12px' }}>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  "2 dni szkolenia online na żywo",
+                  "Od 250 zł (dofinansowanie nawet do 95%)",
+                  "Dla firm, JDG, NGO i pracowników",
+                  "Praca na realnych przykładach biznesowych",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-2 text-sm">
+                    <span className="font-bold shrink-0" style={{ color: '#F5821F' }}>✓</span>
+                    <span className="text-gray-800 font-medium leading-snug">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA Button */}
             <button
               onClick={onOpenRegistration}
-              className="w-full bg-primary text-primary-foreground py-3.5 rounded-b-lg font-bold text-sm hover:opacity-90 transition-opacity border border-t-0 border-primary"
+              className="w-full font-bold text-white hover:opacity-90 transition-opacity mt-4"
+              style={{ backgroundColor: '#F5821F', fontSize: '18px', padding: '16px', borderRadius: '10px' }}
             >
-              Zapisz się na pełny kurs
+              Sprawdź dofinansowanie i zapisz się →
             </button>
           </div>
 
