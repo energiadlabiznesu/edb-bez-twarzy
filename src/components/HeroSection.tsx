@@ -96,6 +96,25 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
             </p>
           </div>
 
+          {/* Scroll nudge */}
+          <div className="flex flex-col items-center mb-6" style={{ gap: '4px' }}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#F5821F"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ width: '24px', height: '24px', animation: 'bounce-arrow 1.2s ease-in-out infinite' }}
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+            <span style={{ fontSize: '13px', color: '#888', textAlign: 'center' }}>
+              Obejrzyj bezpłatne szkolenie i zdecyduj
+            </span>
+          </div>
+
           {/* Video */}
           <div className="mb-6">
             <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-border bg-black">
@@ -132,7 +151,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
               )}
             </div>
             {/* Benefits block */}
-            <div className="mt-4 bg-white rounded-xl p-4 shadow-sm" style={{ borderRadius: '12px' }}>
+            <div className="mt-4 rounded-xl p-4" style={{ borderRadius: '12px', backgroundColor: '#ffffff', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}>
               <div className="grid grid-cols-2 gap-3">
                 {[
                   "2 dni szkolenia online na żywo",
@@ -154,7 +173,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
               className="w-full font-bold text-white hover:opacity-90 transition-opacity mt-4"
               style={{ backgroundColor: '#F5821F', fontSize: '18px', padding: '16px', borderRadius: '10px' }}
             >
-              Sprawdź dofinansowanie i zapisz się →
+              Sprawdź dofinansowanie →
             </button>
           </div>
 
