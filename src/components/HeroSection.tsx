@@ -151,7 +151,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
               <div className="grid grid-cols-2 gap-3">
                 {[
                   "2 dni szkolenia online na żywo",
-                  "Od 250 zł (dofinansowanie nawet do 95%)",
+                  "Dofinansowanie nawet do 100%",
                   "Dla firm, JDG, NGO i pracowników",
                   "Praca na realnych przykładach biznesowych",
                 ].map((item) => (
@@ -169,7 +169,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
               className="w-full font-bold text-primary-foreground bg-primary hover:opacity-90 transition-opacity mt-4"
               style={{ fontSize: '18px', padding: '16px', borderRadius: '10px' }}
             >
-              Sprawdź dofinansowanie →
+              Sprawdź dofinansowanie na szkolenie online
             </button>
           </div>
 
@@ -184,9 +184,9 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
             </p>
             <div className="flex items-baseline gap-4 mb-6">
               <span className="text-muted-foreground line-through text-lg">5 000 zł</span>
-              <span className="text-5xl font-black text-primary tracking-tight">od 250 zł</span>
+              <span className="text-3xl font-black text-primary tracking-tight">dofinansowanie nawet do 100%</span>
             </div>
-            <p className="text-muted-foreground text-sm mb-8">Dofinansowanie od państwa pokrywa do 95% kosztów kursu</p>
+            <p className="text-muted-foreground text-sm mb-8">Dofinansowanie od państwa pokrywa nawet do 100% kosztów kursu</p>
             <button
               onClick={onOpenRegistration}
               className="inline-block bg-foreground text-background px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-primary hover:text-primary-foreground transition-colors"

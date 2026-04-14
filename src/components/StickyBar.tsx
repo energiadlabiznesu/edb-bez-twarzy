@@ -28,7 +28,7 @@ export const StickyBar = ({ onOpenRegistration, theme, onToggleTheme }: Props) =
             onClick={onOpenRegistration}
             className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-xs font-bold tracking-wide hover:opacity-90 transition-opacity"
           >
-            Zapisz się — 95% dofinansowania
+            Zapisz się — dofinansowanie do 100%
           </button>
         </div>
       </div>

@@ -58,7 +58,7 @@ export const BenefitsSection = ({ onOpenRegistration }: Props) => {
 
         <ScrollFadeIn className="mt-10">
           <div className="border-t border-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-muted-foreground text-sm">Dofinansowanie do 95%. Pomagamy z dokumentami.</p>
+            <p className="text-muted-foreground text-sm">Dofinansowanie nawet do 100%. Pomagamy z dokumentami.</p>
             <button
               onClick={onOpenRegistration}
               className="inline-block bg-foreground text-background px-6 py-3 rounded-lg font-bold text-sm hover:bg-primary hover:text-primary-foreground transition-colors"

@@ -127,7 +127,7 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
 
           <div className="flex justify-center pt-2">
             <span className="inline-block border border-primary/30 text-primary text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">
-              Dofinansowanie do 95% — sprawdzimy opcje za Ciebie
+              Dofinansowanie nawet do 100% — sprawdzimy opcje za Ciebie
             </span>
           </div>
 
@@ -196,7 +196,7 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
           <div className="mb-8 rounded-lg border border-primary/40 bg-primary/5 p-5">
             <p className="text-xs uppercase tracking-widest text-primary font-bold mb-2">Dlaczego pytamy o firmę?</p>
             <p className="text-foreground text-sm leading-relaxed">
-              Sprawdzamy czy możesz dostać <strong>dofinansowanie z KFS lub BUR</strong> — wtedy zamiast <span className="line-through text-muted-foreground">5 000 zł</span> płacisz tylko <strong className="text-primary text-base">od 250 zł</strong>. Całą dokumentację robimy za Ciebie, bezpłatnie.
+              Sprawdzamy czy możesz dostać <strong>dofinansowanie z KFS lub BUR</strong> — zamiast <span className="line-through text-muted-foreground">5 000 zł</span> możesz zapłacić nawet <strong className="text-primary text-base">0 zł</strong> — dofinansowanie pokrywa nawet do 100% kosztów. Całą dokumentację robimy za Ciebie, bezpłatnie.
             </p>
           </div>
 
