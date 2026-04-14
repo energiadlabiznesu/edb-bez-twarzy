@@ -87,32 +87,28 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
             <h1 className="text-4xl md:text-6xl font-black leading-[1.1] text-foreground tracking-tight">
               Twoja firma nie potrzebuje agencji.
             </h1>
-            <h2 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-tight mb-6" style={{ color: '#F5821F' }}>
+            <h2 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-tight mb-6 text-primary">
               Potrzebuje AI.
             </h2>
-
-            <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-              Naucz się sam lub zapisz swój zespół — w 2 dni online.
-            </p>
           </div>
 
           {/* Scroll nudge */}
-          <div className="flex flex-col items-center mb-6" style={{ gap: '4px' }}>
+          <div className="flex flex-col items-center mb-6" style={{ gap: '6px' }}>
+            <span style={{ fontSize: '13px', color: '#888', textAlign: 'center' }}>
+              Obejrzyj bezpłatne szkolenie i zdecyduj się na zapis
+            </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#F5821F"
               strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
+              className="stroke-primary"
               style={{ width: '24px', height: '24px', animation: 'bounce-arrow 1.2s ease-in-out infinite' }}
             >
               <polyline points="6 9 12 15 18 9" />
             </svg>
-            <span style={{ fontSize: '13px', color: '#888', textAlign: 'center' }}>
-              Obejrzyj bezpłatne szkolenie i zdecyduj
-            </span>
           </div>
 
           {/* Video */}
@@ -160,7 +156,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
                   "Praca na realnych przykładach biznesowych",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2 text-sm">
-                    <span className="font-bold shrink-0" style={{ color: '#F5821F' }}>✓</span>
+                    <span className="font-bold shrink-0 text-primary">✓</span>
                     <span className="text-gray-800 font-medium leading-snug">{item}</span>
                   </div>
                 ))}
@@ -170,8 +166,8 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
             {/* CTA Button */}
             <button
               onClick={onOpenRegistration}
-              className="w-full font-bold text-white hover:opacity-90 transition-opacity mt-4"
-              style={{ backgroundColor: '#F5821F', fontSize: '18px', padding: '16px', borderRadius: '10px' }}
+              className="w-full font-bold text-primary-foreground bg-primary hover:opacity-90 transition-opacity mt-4"
+              style={{ fontSize: '18px', padding: '16px', borderRadius: '10px' }}
             >
               Sprawdź dofinansowanie →
             </button>
@@ -188,7 +184,7 @@ export const HeroSection = ({ onGateSubmit, gateData, onOpenRegistration }: Hero
             </p>
             <div className="flex items-baseline gap-4 mb-6">
               <span className="text-muted-foreground line-through text-lg">5 000 zł</span>
-              <span className="text-5xl font-black text-primary tracking-tight">250 zł</span>
+              <span className="text-5xl font-black text-primary tracking-tight">od 250 zł</span>
             </div>
             <p className="text-muted-foreground text-sm mb-8">Dofinansowanie od państwa pokrywa do 95% kosztów kursu</p>
             <button

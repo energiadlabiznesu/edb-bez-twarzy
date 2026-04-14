@@ -9,7 +9,7 @@ export const SecondCTA = ({ onOpenRegistration }: Props) => (
     <ScrollFadeIn>
       <div className="max-w-content mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
-          Zapłać <span className="text-primary">250 zł</span> zamiast 5 000 zł
+          Zapłać <span className="text-primary">od 250 zł</span> zamiast 5 000 zł
         </h2>
         <p className="text-muted-foreground text-base mb-4 leading-relaxed max-w-xl mx-auto">
           Dofinansowanie od państwa pokrywa do 95% kosztów kursu. Program się kończy — sprawdź, czy jeszcze możesz skorzystać.
