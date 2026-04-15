@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-const VIDEO_ID = "pmFZB5Xie-g";
+const VIDEO_ID = "lrq0UfrucEY";
 
 interface HeroSectionProps {
   onGateSubmit: (data: { imie: string; email: string; telefon: string }) => void;
