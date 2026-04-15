@@ -21,7 +21,7 @@ export const StickyBar = ({ onOpenRegistration, theme, onToggleTheme }: Props) =
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-content mx-auto px-4 py-3 flex items-center justify-between gap-3">
-        <span className="font-bold text-foreground text-sm tracking-tight">Energia dla Biznesu</span>
+        <img src="/images/logo.png" alt="Energia dla Biznesu" className="h-8 w-auto" />
         <div className="flex items-center gap-3">
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           <button

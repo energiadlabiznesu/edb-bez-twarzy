@@ -2,6 +2,9 @@ export const Footer = () => (
   <footer className="py-12 px-4 border-t border-border">
     <div className="max-w-content mx-auto flex flex-col items-center gap-8">
 
+      {/* Logo */}
+      <img src="/images/logo.png" alt="Energia dla Biznesu" className="h-10 w-auto" />
+
       {/* Contact row */}
       <div className="flex flex-col sm:flex-row items-center gap-6 text-sm">
         <a
