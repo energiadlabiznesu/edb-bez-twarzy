@@ -45,7 +45,7 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          zrodlo: "zapis / kurs marketing AI",
+          zrodlo: "ai.energiabiznesu.pl",
           imie,
           email,
           telefon: telefon.startsWith("+48") ? telefon : `+48${telefon}`,
