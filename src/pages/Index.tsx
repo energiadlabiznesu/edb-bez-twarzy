@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { StickyBar } from "@/components/StickyBar";
 import { HeroSection } from "@/components/HeroSection";
 import { ComparisonTable } from "@/components/ComparisonTable";
+import { TrainerSection } from "@/components/TrainerSection";
+import { ReviewsSection } from "@/components/ReviewsSection";
+import { GallerySection } from "@/components/GallerySection";
 import { SecondCTA } from "@/components/SecondCTA";
 import { RegistrationForm } from "@/components/RegistrationForm";
 import { Footer } from "@/components/Footer";
@@ -31,6 +34,9 @@ const Index = () => {
       </div>
       <HeroSection onOpenRegistration={openRegistration} />
       <ComparisonTable />
+      <TrainerSection />
+      <ReviewsSection />
+      <GallerySection />
       <SecondCTA onOpenRegistration={openRegistration} />
       <RegistrationForm prefill={null} isOpen={showRegistration} onClose={closeRegistration} />
       <RegistrationForm prefill={null} />
