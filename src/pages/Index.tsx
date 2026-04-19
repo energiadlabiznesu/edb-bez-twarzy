@@ -41,9 +41,7 @@ const Index = () => {
       <GallerySection />
       <SecondCTA onOpenRegistration={openRegistration} />
       <RegistrationForm prefill={null} isOpen={showRegistration} onClose={closeRegistration} />
-      <div id="kontakt">
-        <RegistrationForm prefill={null} />
-      </div>
+      <RegistrationForm prefill={null} />
       <Footer />
     </InfiniteGridBg>
   );
