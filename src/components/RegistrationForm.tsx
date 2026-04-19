@@ -162,11 +162,12 @@ export const RegistrationForm = ({ prefill, isOpen, onClose }: Props) => {
         >
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors z-10"
+            className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors text-sm font-medium mb-6 group"
           >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <svg className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
+            Wróć na stronę
           </button>
           <div className="mb-6">
             <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">Zapisz się na kurs</h3>
