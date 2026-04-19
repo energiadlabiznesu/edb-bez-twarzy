@@ -8,7 +8,6 @@ import { GallerySection } from "@/components/GallerySection";
 import { SecondCTA } from "@/components/SecondCTA";
 import { RegistrationForm } from "@/components/RegistrationForm";
 import { Footer } from "@/components/Footer";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { useTheme } from "@/hooks/useTheme";
 import { InfiniteGridBg } from "@/components/ui/the-infinite-grid";
 
@@ -29,17 +28,22 @@ const Index = () => {
   return (
     <InfiniteGridBg className="min-h-screen bg-background">
       <StickyBar onOpenRegistration={openRegistration} theme={theme} onToggleTheme={toggle} />
-      <div className="fixed top-4 right-4 z-40">
-        <ThemeToggle theme={theme} onToggle={toggle} />
+      <div id="szkolenie" className="pt-14">
+        <HeroSection onOpenRegistration={openRegistration} />
       </div>
-      <HeroSection onOpenRegistration={openRegistration} />
       <ComparisonTable />
-      <TrainerSection />
-      <ReviewsSection />
+      <div id="trener">
+        <TrainerSection />
+      </div>
+      <div id="opinie">
+        <ReviewsSection />
+      </div>
       <GallerySection />
       <SecondCTA onOpenRegistration={openRegistration} />
       <RegistrationForm prefill={null} isOpen={showRegistration} onClose={closeRegistration} />
-      <RegistrationForm prefill={null} />
+      <div id="kontakt">
+        <RegistrationForm prefill={null} />
+      </div>
       <Footer />
     </InfiniteGridBg>
   );
